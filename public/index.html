@@ -1,0 +1,97 @@
+<html>
+
+<head>
+  <title>Express</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <h1>Express</h1>
+  <p>Welcome to Express</p>
+  <label >Sign In </label>
+  <form action="/signin" method="post">
+    <label for="username">Enter username: </label>
+    <input id="username" type="text" name="username_field" >
+    <br />
+    <label for="password">Enter password: </label>
+    <input id="password" type="text" name="password_field" >
+    <br />
+    <button type="submit">Submit</button>
+  </form>
+  <label >Update Schedule </label>
+  <form action="/updateSchedule " method="post">
+    <label for="schedule">Enter new schedule: </label>
+    <input id="schedule" type="text" name="schedule_field" >
+    <br />
+    <button type="submit">Submit</button>
+  </form>
+  <label >Create Group</label>
+  <form action="/createGroup " method="post">
+    <label for="group">Enter group name: </label>
+    <input id="group" type="text" name="group_field" >
+    <br />
+    <label for="description">Enter new schedule: </label>
+    <input id="description" type="text" name="description_field" >
+    <br />
+    <button type="submit">Submit</button>
+  </form>
+  <label >Do an Invitation </label>
+  <form action="/doInvitation " method="post">
+    <label for="groupinviting">Enter group name: </label>
+    <input id="groupinviting" type="text" name="groupinviting_field" >
+    <br />
+    <label for="userinvited">Enter user invited: </label>
+    <input id="userinvited" type="text" name="userinvited_field" >
+    <br />
+    <button type="submit">Submit</button>
+  </form>
+  <label >Accept Invitation </label>
+  <form action="/acceptInvitation " method="post">
+    <label for="groupinv">Enter group name: </label>
+    <input id="groupinv" type="text" name="groupinv_field" >
+    <br />
+    <label for="userinvit">Enter user invited: </label>
+    <input id="userinvit" type="text" name="userinvit_field" >
+    <br />
+    <button type="submit">Submit</button>
+  </form>
+  <form action="/generateConflictMatrix " method="post">
+    <label for="groupname">Enter group name: </label>
+    <input id="groupname" type="text" name="groupname_field" >
+    <br />
+    <button type="submit">Submit</button>
+  </form>
+  <label >Sign up </label>
+  <form action="/signup" method="post">
+    <label for="user">Enter your username : </label>
+    <input id="user" type="text" name="user_field" >
+    <br />
+    <label for="pass">Enter your password : </label>
+    <input id="pass" type="text" name="pass_field" >
+    <br />
+    <label for="passwordconfirmup">confirm password: </label>
+    <input id="passwordconfirmup" type="text" name="confirmpass_field" >
+    <br />
+    <label for="emailup">Email: </label>
+    <input id="emailup" type="text" name="email_field" >
+    <br />
+    <button type="submit">Submit</button>
+
+  </form>
+  <label >consult a user</label>
+  <form action="/consultUser " method="get">
+    <label for="usernameConsult">Enter username: </label>
+    <input id="usernameConsult" type="text" name="usernameconsult" >
+    <br />
+    <button type="submit">Submit</button>
+  </form>
+  <label >consult a group </label>
+  <form action="/consultGroup " method="get">
+    <label for="groupConsult">Enter groupname: </label>
+    <input id="groupConsult" type="text" name="groupco" >
+    <br />
+    <button type="submit">Submit</button>
+  </form>
+</body>
+
+</html>
