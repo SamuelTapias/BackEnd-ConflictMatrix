@@ -294,11 +294,12 @@ function associateMemberGroup(member,group) {
 app.get('/consultGroup',function (req,res) {
     mongoClient.connect(url, function(err, db) {
         var collection = db.collection("jdgroup");
-        var s=req.body.groupco;
-        console.log(s);
-        collection.find().toArray(function(err, result) {
+        var s=req.query.groupco;
+        //console.log(s);
+        collection.find({name: s}).toArray(function(err, result) {
             let r = JSON.stringify(result[0]);
             console.log(result);
+            db.close();
         });
 
     });
@@ -307,12 +308,49 @@ app.get('/consultGroup',function (req,res) {
 app.get('/consultUser',function (req,res) {
     mongoClient.connect(url, function(err, db) {
         var collection = db.collection("jduser");
+        console.log(req);
         collection.find({name: req.body.usernameconsult}).toArray(function(err, result) {
             let r = JSON.stringify(result[0]);
             console.log(r);
+            db.close();
         });
     });
 });
+app.get('/consultGroupmember',function (req,res) {
+    mongoClient.connect(url, function(err, db) {
+        var collection = db.collection("jdgroupmember");
+
+        collection.find({member:  req.query.groupco}).toArray(function(err, result) {
+            let r = JSON.stringify(result);
+            console.log(r);
+            db.close();
+        });
+    });
+});
+app.get('/consultmemberGroup',function (req,res) {
+    mongoClient.connect(url, function(err, db) {
+        var collection = db.collection("jdgroupmember");
+        console.log(req.query.groupco);
+        collection.find({group: req.query.groupco}).toArray(function(err, result) {
+            let r = JSON.stringify(result);
+            console.log(r);
+            db.close();
+        });
+    });
+});
+
+app.get('/consultInvitation',function (req,res) {
+    mongoClient.connect(url, function(err, db) {
+        var collection = db.collection("jdinvitation");
+        console.log(req.query.groupco);
+        collection.find({invto: req.query.groupco}).toArray(function(err, result) {
+            let r = JSON.stringify(result);
+            console.log(r);
+            db.close();
+        });
+    });
+});
+
 function setCharAt(str,index,chr) {
     if(index > str.length-1) return str;
     return str.substr(0,index) + chr + str.substr(index+1);
